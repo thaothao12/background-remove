@@ -3,3 +3,4 @@ fastapi-socketio==0.0.10
 uvicorn==0.25.0
 Pillow==8.4.0
 transparent-background==1.2.9
+python-multipart==0.0.6
