@@ -1,12 +1,11 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from PIL import Image
 from io import BytesIO
-from mangum import Mangum
 import base64
 from transparent_background import Remover
 
 app = FastAPI()
-handler = Mangum(app)
+
 
 @app.post("/remove_background")
 async def remove_background(image: UploadFile = File(...)):
