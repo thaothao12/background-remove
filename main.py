@@ -1,10 +1,12 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from PIL import Image
 from io import BytesIO
+from mangum import Mangum
 import base64
 from transparent_background import Remover
 
 app = FastAPI()
+handler = Mangum(app)
 
 @app.post("/remove_background")
 async def remove_background(image: UploadFile = File(...)):
@@ -29,6 +31,6 @@ async def remove_background(image: UploadFile = File(...)):
 async def hello():
     return {"Hello you success"}
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app, host="0.0.0.0", port=5000)
